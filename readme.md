@@ -76,6 +76,39 @@ public class Test {
 详见: <https://github.com/xuminwlt/j360-agent>
     -》 如何使用idea调试premain方法
 
+
+tprofile相关的配置
+
+```
+#log file name
+logFileName = tprofiler.log
+methodFileName = tmethod.log
+samplerFileName = tsampler.log
+
+#basic configuration items
+startProfTime = 9:00:00
+endProfTime = 13:00:00
+eachProfUseTime = 5
+eachProfIntervalTime = 50
+samplerIntervalTime = 20
+port = 50000
+debugMode = true
+needNanoTime = false
+ignoreGetSetMethod = true
+
+#file paths
+logFilePath = ${user.home}/logs/${logFileName}
+methodFilePath = ${user.home}/logs/${methodFileName}
+samplerFilePath = ${user.home}/logs/${samplerFileName}
+
+#include & excludes items
+excludeClassLoader = org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader
+includePackageStartsWith = com.taobao;com.taobao.common;com.fotoplace
+excludePackageStartsWith = com.taobao.sketch;org.apache.velocity;com.alibaba;com.taobao.forest.domain.dataobject
+
+```
+
+
 ## aspectJ
 
 AspectJ的Load Time Weaving机制，需要配置 -javaagent: [path to aspectj-weaver.jar] 。
@@ -83,10 +116,14 @@ AspectJ的Load Time Weaving机制，需要配置 -javaagent: [path to aspectj-we
 
 如何通过可配置化的手段进行监控:aop.xml
 
+```
+mvn clean package exec:exec -Pdemo-weaver
+```
 
 ## greys alibaba
 
 通过远程监控命令监控jvm方法执行的性能,参考了BTrace
+
 
 
 ## BTrace 从sun剥离了,在github开源

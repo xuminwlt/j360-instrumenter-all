@@ -11,6 +11,7 @@
     <modules>
         <module>j360-instrumenter-google</module>
         <module>j360-instrument-tprofile</module>
+        <module>j360-instrumenter-aspectj</module>
     </modules>
 
     <dependencyManagement>
@@ -61,6 +62,12 @@
                     <target>1.7</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2</version>
             </plugin>
         </plugins>
     </build>
