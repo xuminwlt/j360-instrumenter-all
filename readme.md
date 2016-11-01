@@ -6,6 +6,15 @@
 
 对分配的内存大小进行监控,主要针对new和特殊的构造器+回调进行监控,思考下如果监控对象的动态的内存变化呢?
 
+地址目录是我的maven仓库地址
+
+
+-javaagent:/Users/min_xu/.m2/repository/com/google/code/java-allocation-instrumenter/java-allocation-instrumenter/3.0/java-allocation-instrumenter-3.0.jar
+
+java -javaagent:/Users/min_xu/.m2/repository/com/google/code/java-allocation-instrumenter/java-allocation-instrumenter/3.0/java-allocation-instrumenter-3.0.jar TestAllocations
+java -javaagent:/Users/min_xu/.m2/repository/com/google/code/java-allocation-instrumenter/java-allocation-instrumenter/3.0/java-allocation-instrumenter-3.0.jar TestConstructors
+
+
 ```
 public class Test {
   public static void main(String [] args) throws Exception {
@@ -64,6 +73,16 @@ public class Test {
  2. 可配置监控的方法
  3. 可通过tcp远程执行命令
 
+详见: <https://github.com/xuminwlt/j360-agent>
+    -》 如何使用idea调试premain方法
+
+## aspectJ
+
+AspectJ的Load Time Weaving机制，需要配置 -javaagent: [path to aspectj-weaver.jar] 。
+打开aspectj-weaver.jar，可以看到META-INF/MANIFEST里定义了 Premain-Class: org.aspectj.weaver.loadtime.Agent
+
+如何通过可配置化的手段进行监控:aop.xml
+
 
 ## greys alibaba
 
@@ -74,9 +93,6 @@ public class Test {
 
 通过远程监控命令监控jvm方法执行的性能,具体使用方式:
 
-
-
-## aspectJ
 
 
 ## spring-instrument
