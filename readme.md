@@ -87,6 +87,7 @@ public class Test {
 详见: <https://github.com/xuminwlt/j360-agent>
     -》 如何使用idea调试premain方法
 
+-javaagent:/Users/min_xu/Documents/IdeaProjects/TProfiler/pkg/TProfiler/lib/tprofiler-1.0.1.jar -Dprofile.properties=/Users/min_xu/Documents/IdeaProjects/TProfiler/pkg/TProfiler/lib/profile.properties
 
 tprofile相关的配置
 
@@ -128,7 +129,7 @@ AspectJ的Load Time Weaving机制，需要配置 -javaagent: [path to aspectj-we
 如何通过可配置化的手段进行监控:aop.xml
 
 ```
-mvn clean package exec:exec -Pdemo-weaver
+mvn clean package exec:exec -Pstart-weaver-demo
 ```
 
 ## greys alibaba <https://github.com/oldmanpushcart/greys-anatomy>
