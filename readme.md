@@ -2,7 +2,18 @@
 
 这里简单对常用的instrument进行收集使用和总结
 
-## google instrumenter
+jdk5/6 instrument
+ > * javaagent premain jdk5+
+ > * javaagent agentmain 依赖Attach Tools API jdk6+
+
+> idea debug javaagent
+ - new debug application
+ - mainClass:me.j360.agent.demo.MainDemoClass
+ -  -javaagent:target/j360-agent-1.0-SNAPSHOT.jar
+ - 分别对premain和MainDemoClass打断点进行debug
+
+
+## google instrumenter  <https://github.com/google/allocation-instrumenter>
 
 对分配的内存大小进行监控,主要针对new和特殊的构造器+回调进行监控,思考下如果监控对象的动态的内存变化呢?
 
@@ -65,7 +76,7 @@ public class Test {
 ```
 
 
-## TProfile alibaba
+## TProfile alibaba  <https://github.com/alibaba/TProfiler>
 
 监控代码方法执行的时间和数量的监控,分别通过输出log日志形式进行监控,性能影响在20%-30%之间
 
@@ -120,13 +131,13 @@ AspectJ的Load Time Weaving机制，需要配置 -javaagent: [path to aspectj-we
 mvn clean package exec:exec -Pdemo-weaver
 ```
 
-## greys alibaba
+## greys alibaba <https://github.com/oldmanpushcart/greys-anatomy>
 
 通过远程监控命令监控jvm方法执行的性能,参考了BTrace
 
 
 
-## BTrace 从sun剥离了,在github开源
+## BTrace 从sun剥离了,在github开源 <https://github.com/btraceio/btrace>
 
 通过远程监控命令监控jvm方法执行的性能,具体使用方式:
 
