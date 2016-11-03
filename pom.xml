@@ -12,6 +12,7 @@
         <module>j360-instrumenter-google</module>
         <module>j360-instrument-tprofile</module>
         <module>j360-instrumenter-aspectj</module>
+        <module>j360-instrumenter-btrace</module>
     </modules>
 
     <dependencyManagement>
